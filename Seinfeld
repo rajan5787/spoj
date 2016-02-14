@@ -1,0 +1,45 @@
+
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+
+
+/**
+ *
+ * @author rajan pipaliya
+ */
+public class Seinfeld {
+    BufferedReader asd =new BufferedReader(new InputStreamReader(System.in));
+    PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
+    public static void main(String argv[]) throws Exception{
+        new Seinfeld().run();
+    }
+    public void run() throws Exception{
+        String s=asd.readLine();
+        int j=1;
+    while(s.charAt(0)!='-'){
+        int temp=0,count=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='{'){
+               temp++;
+            }
+            else if(s.charAt(i)=='}'&&temp==0){
+                    count++;
+                    temp++;
+                }else
+                    temp--;
+                }
+             int sum=temp/2+count; 
+             out.println(j+". "+sum);
+             j++;
+             s=asd.readLine();
+                }
+             out.flush();
+             
+        }
+      
+  
+
+}
