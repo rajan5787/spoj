@@ -1,0 +1,57 @@
+package programe;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+
+public class IIIpower{
+	static BigInteger x;
+
+	public static void main(String argv[]) throws IOException{
+		BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+		BigInteger n=new BigInteger("1");
+	while(!(n.equals(new BigInteger("0")))){
+		 String num=asd.readLine();
+		 n=new BigInteger(num);
+		 if(n.equals(new BigInteger("0"))){
+			 break;
+		 }
+	int c,i,s;
+	BigInteger a=new BigInteger("3");
+    int b[]=new int[10000];
+   
+  n= n.subtract(new BigInteger("1"));
+   for(c=0;n.compareTo(new BigInteger("0"))==1;c++)
+   {
+	   if(n.compareTo(new BigInteger("0"))!=1)break;
+  
+   s=mithil(n);
+    b[c]=s;
+    n=n.subtract(x.divide(new BigInteger("2")));
+   }
+   System.out.printf("{");
+   for(i=c-1;i>=0;i--)
+	   if(i!=0)
+   System.out.print(" "+a.pow(b[i])+",");
+	   else
+		   System.out.print(" "+a.pow(b[i]));
+
+  System.out.printf(" }\n");
+  n=new BigInteger("1");
+	}	
+}
+public static int mithil(BigInteger s)
+{	BigInteger y=new BigInteger("1");
+BigInteger z=new BigInteger("2");
+    x=y;
+int k=-1;
+while(!(s.compareTo(x)==-1)){
+	 x=x.multiply(z);
+	   k++;
+
+}
+return k;
+}
+
+}
