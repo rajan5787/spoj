@@ -1,0 +1,29 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+
+
+/**
+ *
+ * @author rajan pipaliya
+ */
+public class Hubulullu {
+    public static void main(String argv[]) throws IOException{
+        BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+        int t=Integer.parseInt(asd.readLine().trim());
+        while(t--!=0){
+            String[] s=asd.readLine().trim().split(" ");
+            long n=Long.parseLong(s[0]);
+            int p=Integer.parseInt(s[1]);
+           
+                if(p==1)
+                    System.out.println("Pagfloyd wins.");
+                else
+                    System.out.println("Airborne wins.");
+          
+        }
+        
+    }
+}
