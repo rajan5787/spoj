@@ -1,0 +1,45 @@
+package programe;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Amusingnumbers {
+	public static void main(String argv[]) throws NumberFormatException, IOException{
+		BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+		int t=Integer.parseInt(asd.readLine());
+		
+		while(t!=0){
+			int i=0;
+			long num=0;
+			int j=0;
+			String s="";
+			t--;
+			num=Long.parseLong(asd.readLine());
+			while(num>0){
+				num=num-(int)Math.pow(2, i);
+				i++;
+			}
+		if(num!=0){
+			num=num+(int)Math.pow(2, i-1);
+		}
+		long d=num;
+			i-=1;
+			while(num>=0){
+			j++;
+			long a=num%2;
+			num=num/2;
+			if(a==0)s="5"+s;
+			else s="6"+s;
+			if(num==0)break;
+		}
+		if(j<=i){
+			for(int k=0;k<i-j;k++){
+				s="5"+s;
+			}
+			if(d==0)s="5"+s;
+		}
+		System.out.println(s);
+	}
+	}	
+}
