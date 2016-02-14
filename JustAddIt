@@ -1,0 +1,37 @@
+package programe;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class JustAddIt {
+	public static void main(String argv[]) throws IOException{
+		BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+		int n=1,k=1;
+		while(n!=0&&k!=0){
+			String s=asd.readLine();
+			String ss[]=s.split(" ");
+			n=Integer.parseInt(ss[0]);
+			k=Integer.parseInt(ss[1]);
+			if( n == 0 && k == 0)
+			       break ;
+			System.out.println((power(n,k)+2*power (n-1,k)+power ( n , n)+2*power ( n-1 , n-1) )%10000007);
+			
+		}
+	}
+	
+	public static long power(long a,long b)
+	{
+	    long d=1;
+	    while(b!=0)
+	    {
+	        if(b%2==0)
+	        {
+	            d=(d*a)%10000007;
+	        }
+	        b>>=1;
+	        a=(a*a)%10000007;
+	    }
+	    return d;
+	}
+}
