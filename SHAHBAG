@@ -1,0 +1,41 @@
+
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+
+
+/**
+ *
+ * @author rajan pipaliya
+ */
+public class SHAHBAG {
+    BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+    PrintWriter out=new PrintWriter(new BufferedOutputStream(System.out));
+    public static void main(String argv[])throws Exception{
+        new SHAHBAG().run();
+    }
+    void run()throws Exception{
+        int t=Integer.parseInt(asd.readLine());
+        int sum=0,a[];
+        String x[];
+          StringTokenizer tokenizer= new StringTokenizer(asd.readLine());
+         a=new int[200001];
+        for(int i=0;i<t;i++){
+           if (!tokenizer.hasMoreTokens()) 
+                  tokenizer = new StringTokenizer(asd.readLine());
+                 int x1=Integer.parseInt(tokenizer.nextToken());
+            a[x1]=1;
+            if(a[x1-1]==1&&a[x1+1]==1)
+                sum--;
+            else if(a[x1-1]!=1&&a[x1+1]!=1)
+                sum++;
+            
+                out.println(sum);  
+            }
+            out.println("Justice");
+            out.flush();
+        }
+    }
