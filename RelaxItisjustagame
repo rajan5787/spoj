@@ -1,0 +1,41 @@
+
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+
+/**
+ *
+ * @author rajan pipaliya
+ */
+public class RelaxItisjustagame {
+    BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+    PrintWriter out = new PrintWriter(new BufferedOutputStream(System.out));
+        public static void main(String argv[])throws Exception{
+            new RelaxItisjustagame().run();
+        }
+        public void run() throws Exception{
+            String[] s=asd.readLine().split(" ");
+            while(Integer.parseInt(s[0])!=-1){
+            int a=Integer.parseInt(s[0]);
+              int b=Integer.parseInt(s[1]);
+              int c;
+              c=a+b;            
+              
+              if(c==(fect(c)/(fect(a)*fect(b))))
+                     out.println(a+"+"+b+"="+(c));
+              else
+                   out.println(a+"+"+b+"!="+(c));
+                      
+              s=asd.readLine().split(" ");
+        }
+        out.flush();
+        }
+        public int fect(int x){
+            if(x==0)return 1;
+            for(int i=x-1;i>=2;i--)
+                x*=i;
+            return x;
+        }
+}
