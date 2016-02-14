@@ -1,0 +1,67 @@
+
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author rajan pipaliya
+ */
+public class Alphacode {
+     BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out=new PrintWriter(new BufferedOutputStream(System.out));
+
+    public static void main(String argv[]) throws Exception{
+        new Alphacode().run();
+    }
+    public void run() throws Exception{
+       
+        String s=asd.readLine();
+        int x=Integer.parseInt(Character.toString(s.charAt(0)));
+        while(x!=0){
+             int a[]=new int[s.length()+1];
+             long dp[]=new long[s.length()+1];
+             for(int i=1;i<=s.length();i++){ 
+ 		a[i]=Integer.parseInt(Character.toString(s.charAt(i-1))); 
+             } 
+             dp[0]=1;
+             dp[1]=1;
+             int n=s.length()+1;
+             for(int i=2;i<n;i++){
+                 if(a[i]==0){
+                     dp[i]=dp[i-2];
+                 }
+                 else if(a[i]<=6){
+                     if(a[i-1]==1||a[i-1]==2){
+                         dp[i]=dp[i-1]+dp[i-2];
+                     }
+                     else{
+                         dp[i]=dp[i-1];
+                     }
+                     
+                 }
+                 else{
+                          if(a[i-1]==1){
+                         dp[i]=dp[i-1]+dp[i-2];
+                     }
+                     else{
+                         dp[i]=dp[i-1];
+                     } 
+                  }
+             }
+        out.println(dp[a.length-1]); 
+        s=asd.readLine();
+        x=Integer.parseInt(Character.toString(s.charAt(0))); 
+        }
+       
+        out.flush();
+    }
+}
