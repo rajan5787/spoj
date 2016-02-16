@@ -1,0 +1,76 @@
+package programe;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class AddingSevens {
+	public static void main(String argv[]) throws IOException{
+		BufferedReader asd=new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		String array[]={"063","010","093","079","106","103","119","011","127","107"};
+		boolean flag=true;
+		while(flag){
+			int f=0,k=0;
+			String s,a="-1",first="-1",second="-1";
+			s=asd.readLine();
+			if(s.equals("BYE")){
+				flag=false;
+				break;
+			}
+			for(int i=0;i<s.length();i++){
+				if(s.charAt(i)=='=')break;
+					if(s.charAt(i)=='+'){
+						f=1;
+						continue;
+					}
+					k++;
+					if(a.equals("-1")){
+						a=String.valueOf(s.charAt(i));
+					}
+					else{
+						a+=String.valueOf(s.charAt(i));
+					}
+					if(k==3){
+						for(int j=0;j<=9;j++){
+							if(a.equals(array[j])){
+								if(f==0){
+								if(first.equals("-1")){
+								first=String.valueOf(j);
+								break;
+								}
+								else{
+									first+=j;
+									break;
+								}
+							}
+								else{
+									if(second.equals("-1")){
+										second=String.valueOf(j);
+										break;
+										}
+										else{
+											second+=j;
+											break;
+										}
+								}
+							}
+						}
+						k=0;
+						a="-1";
+					}
+				
+			}
+			int w=Integer.parseInt(first);
+			int r=Integer.parseInt(second);
+			int ans=w+r;
+			a=String.valueOf(ans);
+			System.out.print(s);
+			for(int i=0;i<a.length();i++){
+					System.out.print(array[Integer.parseInt(String.valueOf(a.charAt(i)))]);
+				}
+		System.out.println();
+		}
+	}
+}
