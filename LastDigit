@@ -1,0 +1,23 @@
+package programe;
+
+import java.util.Scanner;
+
+public class LastDigit {
+public static void main(String argv[]){
+		Scanner asd=new Scanner(System.in);
+	    int T,a,b;
+	    T=asd.nextInt();
+	    while(T--!=0){
+	        a=asd.nextInt();
+	        b=asd.nextInt();
+	       System.out.printf("%d\n",pow(a%10,b));
+	    }
+}
+public static int pow(int a, int b){
+    if(b==0) return 1;
+    int ret = pow(a,b/2);
+    ret *= ret;
+    if((b&1)==1) ret *= a;
+    return ret%10;
+}
+}
